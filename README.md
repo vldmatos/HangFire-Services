@@ -4,11 +4,12 @@
 
 ## Using
 - .Net Core 3.1
-- Web API
+- Web App
+- Using Memory Storage
 
 
 ### How to use
 
-> - Run API as Kestrel  
+> - Run as Kestrel  
 > - dotnet run  
-> - Application open port 5000  
+> - Application open port http:5001 or http:5001

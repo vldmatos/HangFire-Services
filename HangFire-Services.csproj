@@ -2,11 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>HangFire_Services</RootNamespace>
+    <RootNamespace>HangFire.Services</RootNamespace>
+    <AssemblyName>HangFire.Services</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Hangfire.AspNetCore" Version="1.7.20" />
     <PackageReference Include="Hangfire.Core" Version="1.7.20" />
+    <PackageReference Include="Hangfire.InMemory" Version="0.3.4" />
   </ItemGroup>
 
 </Project>

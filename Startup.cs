@@ -1,18 +1,19 @@
+using Hangfire;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace HangFire_Services
+namespace HangFire.Services
 {
 	public class Startup
 	{
 		public void ConfigureServices(IServiceCollection services)
 		{
-			
+			services.AddHangfire(configuration => { configuration.UseInMemoryStorage(); });
 		}
-		
+
 		public void Configure(IApplicationBuilder application, IWebHostEnvironment environment)
 		{
 			if (environment.IsDevelopment())
@@ -25,9 +26,14 @@ namespace HangFire_Services
 			{
 				endpoints.MapGet("/", async context =>
 				{
-					await context.Response.WriteAsync("Hello World!");
+					await context.Response.WriteAsync("Test Hangfire WebApp! Access /hangfire url");
 				});
 			});
+
+			application.UseHangfireDashboard();
+			application.UseHangfireServer();
+
+			Process.Start();
 		}
 	}
 }
